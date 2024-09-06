@@ -65,7 +65,6 @@ const controlSearchResult = async () => {
 
 const controlPagination = function (goToPage) {
   // 3) Render new results
-  // resultsView.render(model.state.search.results);
   resultsView.render(model.getSearchResultsPage(goToPage));
 
   // 4) Render new initial pagniation buttons
@@ -132,6 +131,10 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
+const welComeMessage = () => {
+  console.log('Welcome to my Recipe App, hope you like it! ---Dempsey Zhang');
+};
+
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipe);
@@ -140,5 +143,6 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResult);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
+  welComeMessage();
 };
 init();
